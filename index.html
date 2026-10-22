@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("roki-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<meta name="theme-color" content="#0b1616">
+<title>ROKI Resort · Kaewa, Masinga</title>
+<meta name="description" content="ROKI Resort in Kaewa, Masinga: accommodation, dining, events and a beautiful fountain courtyard.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="top"><span>📍 Kaewa, Masinga</span><a id="tDir" target="_blank" rel="noopener">Get directions</a><span id="tPhone"></span></div>
+<header id="nav">
+  <a class="logo" href="#home"><b>ROKI</b><small>RESORT · KAEWA</small></a>
+  <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu')">☰</button>
+  <nav onclick="document.body.classList.remove('menu')">
+    <a href="#about">About</a><a href="#rooms">Stay</a><a href="#dining">Dining</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    <a class="btn sm" href="#book">Book Now</a>
+  </nav>
+  <button class="tog" id="theme" type="button" aria-label="Switch to light mode" title="Switch theme"></button>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-bg ph sunset" role="img" aria-label="ROKI Resort at sunset"></div>
+  <div class="shade"></div>
+  <div class="hero-t"><p class="eyebrow">Kaewa · Masinga · Kenya</p><h1>Unwind in<br>Masinga</h1><p>Fountain courtyards, good food and open skies, a getaway made for gathering.</p><a class="btn" href="#book">Check Availability</a></div>
+</section>
+
+<form class="bookbar" id="book" onsubmit="return bookNow(event)">
+  <label>Check-in<input type="date" id="bIn" required></label>
+  <label>Check-out<input type="date" id="bOut" required></label>
+  <label>Guests<select id="bG"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></label>
+  <label>Room<select id="bR"></select></label>
+  <button class="btn">Request Booking</button>
+</form>
+
+<section id="about" class="wrap split">
+  <div class="rv"><p class="eyebrow dk">Welcome</p><h2>A destination to remember</h2>
+    <p id="aboutTxt"></p><ul class="feat" id="feat"></ul></div>
+  <div class="imgs stack rv"><div class="ph building" role="img" aria-label="ROKI Resort main building"></div><div class="ph sunset" role="img" aria-label="ROKI Resort grounds at sunset"></div></div>
+</section>
+
+<section id="rooms" class="band"><div class="wrap"><p class="eyebrow dk c">Stay</p><h2 class="c">Rooms &amp; Suites</h2><div class="grid" id="roomGrid"></div></div></section>
+
+<section id="dining" class="wrap split rev">
+  <div class="imgs rv"><div class="ph cottages" role="img" aria-label="Resort grounds and dining"></div></div>
+  <div class="rv"><p class="eyebrow dk">Taste</p><h2>Dining &amp; Refreshments</h2><div id="dineList"></div></div>
+</section>
+
+<section id="events" class="dark"><div class="evbg ph courtyard"></div><div class="wrap rel"><p class="eyebrow c">Gather</p><h2 class="c">Weddings, Conferences &amp; Events</h2><div class="grid" id="evGrid"></div></div></section>
+
+<section class="wrap"><p class="eyebrow dk c">Unwind</p><h2 class="c">Make the Most of Your Visit</h2><div class="chips" id="leisure"></div></section>
+
+<section id="gallery" class="band"><div class="wrap"><h2 class="c">Gallery</h2><div class="gal">
+  <div class="rv"><i class="ph building" role="img" aria-label="Main building"></i></div><div class="rv"><i class="ph fountain" role="img" aria-label="Fountain"></i></div><div class="rv"><i class="ph cottages" role="img" aria-label="Grounds"></i></div><div class="rv"><i class="ph courtyard" role="img" aria-label="Courtyard"></i></div><div class="rv"><i class="ph sunset" role="img" aria-label="Sunset view"></i></div>
+</div></div></section>
+
+<section id="contact" class="wrap split">
+  <div class="rv"><p class="eyebrow dk">Find us</p><h2>Plan your visit</h2><div id="cInfo"></div>
+    <div class="map"><iframe src="https://maps.google.com/maps?q=3MFH%2BQ6%20Kaewa&z=15&output=embed" loading="lazy" title="ROKI Resort on Google Maps"></iframe></div></div>
+  <form class="card rv" onsubmit="return sendEnq(event)">
+    <h3>Send an enquiry</h3>
+    <input id="eN" placeholder="Your name" required><input id="eP" placeholder="Phone number" required>
+    <textarea id="eM" rows="4" placeholder="How can we help?" required></textarea><button class="btn">Send Enquiry</button>
+  </form>
+</section>
+
+<footer><b>ROKI Resort</b> · Kaewa, Masinga · <a id="fb" target="_blank" rel="noopener">Facebook</a><br><small>© <span id="yr"></span> ROKI Resort. All rights reserved.</small></footer>
+
+<div id="agent">
+  <button id="agentBtn" onclick="Agent.toggle()" aria-label="Open concierge">💬<span>Ask Roki</span></button>
+  <div id="agentBox" hidden>
+    <div class="ah"><div><b>Roki Concierge</b><small>Instant answers · 24/7</small></div><button onclick="Agent.toggle()" aria-label="Close">×</button></div>
+    <div id="msgs"></div><div id="chips"></div>
+    <form onsubmit="return Agent.send(event)"><input id="ain" placeholder="Ask about rooms, dining, events…" autocomplete="off"><button>➤</button></form>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
