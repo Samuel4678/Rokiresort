@@ -19,6 +19,10 @@ Booking and enquiry buttons use WhatsApp, then email, then fall back to Facebook
   Set usage limits in console.groq.com, and rotate the key if abused.
   For a safer setup, route requests through a small server/proxy that holds the key.
 
+## Videos (optional)
+- `images/hero.mp4`: loops behind the home page hero (the building photo shows until it loads, or if no video is added).
+- `video/celebrities.mp4`: plays inside the "Celebrities" section. Without it, the play button opens the TikTok link.
+
 ## Images
-Placeholder gradient images are included in `images/`. Replace them with real photos using the same file names:
+Your resort photos are in `images/`. To swap one, replace the file keeping the same name:
 `hero.webp`, `building.webp`, `fountain.webp`, `cottages.webp`, `courtyard.webp`.

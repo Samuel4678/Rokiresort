@@ -8,6 +8,8 @@ if(C.phone)$("#tPhone").innerHTML=`<a href="tel:${C.phone.replace(/\s/g,"")}">�
 $("#feat").innerHTML=C.features.map(f=>`<li>${f}</li>`).join("");
 $("#bR").innerHTML=`<option>Any room</option>`+C.rooms.map(r=>`<option>${r.name}</option>`).join("");
 const pics=["building","cottages","fountain"];
+const FAC=[{i:"🏊",n:"Swimming Pool",d:"Cool off and unwind by our swimming pool, perfect for families, friends and relaxed weekends away."},{i:"🏛️",n:"Conference Rooms",d:"Conference rooms for meetings, workshops, trainings and corporate retreats, with a calm setting that keeps teams focused."}];
+$("#facGrid").innerHTML=FAC.map(f=>`<div class="ev fac rv"><span>${f.i}</span><h3>${f.n}</h3><p>${f.d}</p></div>`).join("");
 $("#roomGrid").innerHTML=C.rooms.map((r,i)=>`<article class="room rv"><div class="pic ph ${pics[i%3]}" role="img" aria-label="${r.name}"></div><div class="b"><h3>${r.name}</h3><p>${r.desc}</p><div class="tags"><i>Sleeps ${r.sleeps}</i></div><div class="row"><span class="price">Rates on request</span><button class="link" onclick="Agent.ask('Book ${r.name}')">Enquire →</button></div></div></article>`).join("");
 $("#dineList").innerHTML=C.dining.map(d=>`<div class="dine"><h3>${d.name}</h3><p>${d.desc}</p></div>`).join("");
 $("#evGrid").innerHTML=C.events.map((e,i)=>`<div class="ev rv"><span>${["💍","🏛️","🌿"][i%3]}</span><h3>${e.name}</h3><p>${e.desc}</p></div>`).join("");
@@ -118,3 +120,12 @@ If you don't know the answer, tell them to contact the team.`;
 (function(){const r=document.documentElement,b=$("#theme"),m=document.querySelector('meta[name="theme-color"]');
  const paint=()=>{const d=r.dataset.theme!=="light";b.textContent=d?"☀️":"🌙";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");if(m)m.content=d?"#0b1616":"#faf6ef"};
  b.onclick=()=>{r.dataset.theme=r.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("roki-theme",r.dataset.theme)}catch(e){}paint()};paint()})();
+
+/* Optional videos: drop files in place and they load automatically.
+   images/hero.mp4 -> looping hero background (building photo is the fallback)
+   video/celebrities.mp4 -> plays inside the Celebrities section */
+(function(){
+ const has=u=>fetch(u,{method:"HEAD"}).then(r=>r.ok).catch(()=>false);
+ has("images/hero.mp4").then(ok=>{if(!ok)return;const v=document.createElement("video");v.src="images/hero.mp4";v.poster="images/building.webp";v.autoplay=v.muted=v.loop=v.playsInline=true;v.setAttribute("muted","");v.className="herovid";$("#heroBg").append(v)});
+ has("video/celebrities.mp4").then(ok=>{if(!ok)return;$("#celebVid").innerHTML='<video controls playsinline preload="metadata" poster="images/courtyard.webp" src="video/celebrities.mp4"></video>'});
+})();

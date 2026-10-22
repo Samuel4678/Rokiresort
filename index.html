@@ -17,14 +17,14 @@
   <a class="logo" href="#home"><b>ROKI</b><small>RESORT · KAEWA</small></a>
   <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu')">☰</button>
   <nav onclick="document.body.classList.remove('menu')">
-    <a href="#about">About</a><a href="#rooms">Stay</a><a href="#dining">Dining</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#rooms">Stay</a><a href="#facilities">Facilities</a><a href="#dining">Dining</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
     <a class="btn sm" href="#book">Book Now</a>
   </nav>
   <button class="tog" id="theme" type="button" aria-label="Switch to light mode" title="Switch theme"></button>
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-bg ph sunset" role="img" aria-label="ROKI Resort at sunset"></div>
+  <div class="hero-bg ph building" id="heroBg" role="img" aria-label="ROKI Resort main building and fountain"></div>
   <div class="shade"></div>
   <div class="hero-t"><p class="eyebrow">Kaewa · Masinga · Kenya</p><h1>Unwind in<br>Masinga</h1><p>Fountain courtyards, good food and open skies, a getaway made for gathering.</p><a class="btn" href="#book">Check Availability</a></div>
 </section>
@@ -44,6 +44,8 @@
 </section>
 
 <section id="rooms" class="band"><div class="wrap"><p class="eyebrow dk c">Stay</p><h2 class="c">Rooms &amp; Suites</h2><div class="grid" id="roomGrid"></div></div></section>
+
+<section id="facilities" class="wrap"><p class="eyebrow dk c">Facilities</p><h2 class="c">Swimming Pool &amp; Conference Rooms</h2><div class="grid" id="facGrid"></div></section>
 
 <section id="dining" class="wrap split rev">
   <div class="imgs rv"><div class="ph cottages" role="img" aria-label="Resort grounds and dining"></div></div>
@@ -67,6 +69,15 @@
     <textarea id="eM" rows="4" placeholder="How can we help?" required></textarea><button class="btn">Send Enquiry</button>
   </form>
 </section>
+
+<section id="famous" class="band"><div class="wrap split">
+  <div class="rv"><div class="vid" id="celebVid"><div class="ph courtyard poster" role="img" aria-label="ROKI courtyard"></div><a class="playbtn" href="https://www.tiktok.com/@phyllismutisya/video/7643001700583755029" target="_blank" rel="noopener" aria-label="Watch on TikTok">▶</a></div></div>
+  <div class="rv"><p class="eyebrow dk">Famous faces</p><h2>Celebrities who have come to ROKI</h2>
+    <p>Stars love a good getaway too. From the fountain courtyard to the open Masinga skies, ROKI has welcomed well-known faces who came to relax, celebrate and make memories.</p>
+    <p style="margin:.8rem 0 1.2rem">Press play to see the fun for yourself, then picture your own visit.</p>
+    <a class="btn" href="https://www.tiktok.com/@phyllismutisya/video/7643001700583755029" target="_blank" rel="noopener">Watch on TikTok</a>
+    <p><small style="color:var(--mut)">Video courtesy of @phyllismutisya on TikTok.</small></p></div>
+</div></section>
 
 <footer><b>ROKI Resort</b> · Kaewa, Masinga · <a id="fb" target="_blank" rel="noopener">Facebook</a><br><small>© <span id="yr"></span> ROKI Resort. All rights reserved.</small></footer>
 

@@ -72,3 +72,11 @@ input,select,textarea{color:var(--ink)}::placeholder{color:var(--mut)}::selectio
 .ph.fountain{background-image:url('images/fountain.webp')}
 .ph.cottages{background-image:url('images/cottages.webp')}
 .ph.courtyard{background-image:url('images/courtyard.webp')}
+
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fac span{font-size:2.2rem}.fac h3{color:#fff}
+:root[data-theme="light"] .fac{background:var(--teal)}
+.vid{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);aspect-ratio:16/10}
+.vid .poster{width:100%;height:100%}.vid video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.playbtn{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center;font-size:1.8rem;text-decoration:none;border:2px solid var(--gold);transition:.25s}.playbtn:hover{transform:scale(1.1);background:var(--gold);color:#1b1405}
+#famous p{margin:.4rem 0}
